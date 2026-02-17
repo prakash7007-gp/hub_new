@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --hub-bronze: #B28B67;
+  --hub-black: #0A0A0A;
+  --hub-gray: #1a1a1a;
+}
+
+@layer base {
+  body {
+    @apply bg-zinc-950 text-white selection:bg-[#B28B67] selection:text-white antialiased overflow-x-hidden;
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* Premium Gradients */
+.grad-bronze {
+  background: linear-gradient(135deg, #B28B67 0%, #d4a77a 100%);
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-white/80 to-hub-bronze;
+}
+
+/* Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.2;
+    transform: scale(1.1);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+/* Custom Cursor & Hover Effects */
+.cursor-blob {
+  @apply fixed pointer-events-none z-[9999] mix-blend-difference bg-white rounded-full transition-transform duration-300;
+  width: 40px;
+  height: 40px;
+}
+
+.hover-revealer {
+  @apply opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none absolute inset-0 bg-hub-bronze/10 backdrop-blur-sm flex items-center justify-center;
+}
+
+/* Glassmorphism */
+.glass {
+  @apply bg-white/[0.03] backdrop-blur-2xl border border-white/5;
+}
+
+/* Typography Utility */
+.font-anton {
+  font-family: 'Anton', sans-serif;
+}
